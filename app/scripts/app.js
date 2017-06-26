@@ -4,13 +4,18 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import AppRoot from "./components/app_root.js";
-import About from "./components/about.js";
+import Welcome from "./components/welcome.js";
 import Contact from "./components/contact.js";
+import Jeopardy from "./components/game.js";
+import Quiz from "./components/quiz.js";
+import Editor from "./components/editor.js";
 
 const Nav = () => (
   <nav>
-    <li><Link to="/about">About</Link></li>
-    <li><Link to="/contact-us">Contact</Link></li>
+    <li><Link to="/game">Jeopardy</Link></li>
+    <li><Link to="/quiz">Quiz</Link></li>
+    <li><Link to="/editor">MarkDown Editor</Link></li>
+
   </nav>
 );
 
@@ -20,9 +25,11 @@ export default function app() {
       <Router>
         <div>
           <Nav />
-          <Route exact path="/" component={AppRoot} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact-us" component={Contact} />
+          <Route exact path="/" component={Welcome} />
+          <Route exact path="/game" component={Jeopardy} />
+          <Route exact path="/quiz" component={Quiz} />
+          <Route exact path="/editor" component={Editor} />
+          
         </div>
       </Router>
     </Provider>,
